@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "VotacaoApplication",
+            "request": "launch",
+            "mainClass": "com.example.votacao.VotacaoApplication",
+            "projectName": "votacao"
+        }
+    ]
+}

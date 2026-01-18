@@ -84,3 +84,70 @@ Exemplos de retorno do serviço
 
 
 # desafio-votacao
+
+## Implementation
+
+This repository now contains a fullstack solution:
+- backend: Spring Boot 3 (Java 17), H2 file database, REST API versioned at /api/v1
+- frontend: React + Vite UI
+
+### Backend
+
+Run:
+```
+cd backend
+mvn spring-boot:run
+```
+
+API docs:
+- Swagger UI: http://localhost:8080/swagger-ui
+- OpenAPI JSON: http://localhost:8080/api-docs
+
+Persistence:
+- H2 file db stored at ./backend/data/votacao
+- Data survives restarts
+
+Key endpoints:
+- POST /api/v1/pautas
+- GET /api/v1/pautas
+- GET /api/v1/pautas/{id}
+- POST /api/v1/pautas/{id}/sessoes
+- POST /api/v1/pautas/{id}/votos
+- GET /api/v1/pautas/{id}/resultado
+
+CPF facade (bonus):
+- Fake client returns random validity and ability
+- If CPF is invalid or UNABLE_TO_VOTE, API returns 404
+
+### Frontend
+
+Run:
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Optional env:
+- VITE_API_URL=http://localhost:8080/api/v1
+
+### Tests
+
+```
+cd backend
+mvn test
+```
+
+### Performance test (bonus 2)
+
+Runs a large number of vote insertions to observe behavior with many votes.
+
+```
+cd backend
+mvn -Dperf=true -Dperf.votes=20000 test -Dtest=VotoPerformanceTest
+```
+
+### Notes
+
+- Session duration defaults to 1 minute
+- A single associado can vote only once per pauta
