@@ -41,7 +41,7 @@ public class PautaService {
 
     public Pauta buscarPorId(Long id) {
         return pautaRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Pauta not found"));
+                .orElseThrow(() -> new NotFoundException("Pauta não encontrada"));
     }
 
     @Transactional

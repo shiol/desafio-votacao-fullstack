@@ -72,6 +72,60 @@ h3 {
   box-shadow: 0 20px 40px var(--shadow);
 }
 
+.panel--wide {
+  max-width: 720px;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.nav a.active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.6);
+  color: var(--accent-2);
+}
+
+.button-link {
+  text-decoration: none;
+  text-align: center;
+  background: var(--accent);
+  color: #1f2937;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.button-link--ghost {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: var(--text);
+}
+
+.inline-link {
+  text-decoration: none;
+  color: var(--accent-2);
+  font-size: 0.85rem;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .stack {
   display: flex;
   flex-direction: column;
@@ -171,9 +225,23 @@ button.danger:hover:not(:disabled) {
 }
 
 .card__header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
   gap: 16px;
+}
+
+.card__header > div {
+  min-width: 0;
+}
+
+.card__title {
+  margin: 0 0 8px;
+}
+
+.card__description {
+  margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .card__actions {
@@ -181,6 +249,7 @@ button.danger:hover:not(:disabled) {
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
+  min-width: 120px;
 }
 
 .card__section {
@@ -242,6 +311,7 @@ button.danger:hover:not(:disabled) {
   font-size: 0.75rem;
   background: rgba(148, 163, 184, 0.2);
   height: fit-content;
+  white-space: nowrap;
 }
 
 .badge--open {
@@ -293,6 +363,17 @@ button.danger:hover:not(:disabled) {
 
 .muted {
   color: var(--muted);
+}
+
+.text-clamp {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-full {
+  white-space: normal;
+  word-break: break-word;
 }
 
 @keyframes fadeIn {

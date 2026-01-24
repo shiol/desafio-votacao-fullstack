@@ -71,7 +71,7 @@ class VotoServiceTest {
     private Pauta criarPauta() {
         CreatePautaRequest request = new CreatePautaRequest();
         request.setTitulo("Pauta A");
-        request.setDescricao("Descricao");
+        request.setDescricao("Descrição");
         return pautaService.criar(request);
     }
 

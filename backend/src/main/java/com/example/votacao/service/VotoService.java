@@ -49,7 +49,7 @@ public class VotoService {
         Pauta pauta = pautaService.buscarPorId(pautaId);
         Sessao sessao = sessaoService.buscarPorPauta(pautaId);
         if (!sessaoService.sessaoAberta(sessao)) {
-            throw new BadRequestException("Sessao closed");
+            throw new BadRequestException("Sessão encerrada");
         }
 
         votoRepository.findByPautaIdAndAssociadoId(pautaId, request.getAssociadoId())

@@ -30,7 +30,7 @@ public class SessaoService {
         Pauta pauta = pautaService.buscarPorId(pautaId);
         Optional<Sessao> existente = sessaoRepository.findByPautaId(pautaId);
         if (existente.isPresent()) {
-            throw new ConflictException("Sessao ja esta aberta para esta pauta");
+            throw new ConflictException("Sessão já está aberta para esta pauta");
         }
 
         int minutos = request != null && request.getDuracaoMinutos() != null
@@ -50,7 +50,7 @@ public class SessaoService {
 
     public Sessao buscarPorPauta(Long pautaId) {
         return sessaoRepository.findByPautaId(pautaId)
-                .orElseThrow(() -> new NotFoundException("Sessao not found for pauta"));
+                .orElseThrow(() -> new NotFoundException("Sessão não encontrada para a pauta"));
     }
 
     public boolean sessaoAberta(Sessao sessao) {
