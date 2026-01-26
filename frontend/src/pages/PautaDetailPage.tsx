@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ApiError } from "../api/client";
 import { getPauta } from "../api/pautas";
 import NotificationToast from "../components/NotificationToast";
 import PautaCard from "../components/PautaCard";
@@ -12,6 +13,7 @@ export default function PautaDetailPage() {
   const [pauta, setPauta] = useState<Pauta | null>(null);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState<Notification | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const pushNotification = (message: string, type: NotificationType = "info") => {
     if (!message) {
@@ -23,14 +25,22 @@ export default function PautaDetailPage() {
   const loadPauta = async () => {
     if (!Number.isFinite(pautaId)) {
       pushNotification("Pauta inválida.", "error");
+      setErrorMessage("Pauta inválida.");
       return;
     }
     setLoading(true);
+    setErrorMessage(null);
     try {
       const data = await getPauta(pautaId);
       setPauta(data);
     } catch (error) {
-      pushNotification(error instanceof Error ? error.message : "Erro ao carregar pauta.", "error");
+      let message = error instanceof Error ? error.message : "Erro ao carregar pauta.";
+      if (error instanceof ApiError && error.status === 404) {
+        message = "Pauta não encontrada.";
+      }
+      setPauta(null);
+      setErrorMessage(message);
+      pushNotification(message, "error");
     } finally {
       setLoading(false);
     }
@@ -56,7 +66,9 @@ export default function PautaDetailPage() {
           {loading ? "Atualizando..." : "Atualizar"}
         </button>
       </div>
-      {pauta ? (
+      {loading && !pauta ? (
+        <p className="muted">Carregando detalhes da pauta...</p>
+      ) : pauta ? (
         <PautaCard
           pauta={pauta}
           onRefresh={loadPauta}
@@ -64,6 +76,13 @@ export default function PautaDetailPage() {
           showDetailsLink={false}
           onDeleted={() => navigate("/")}
         />
+      ) : errorMessage ? (
+        <div className="panel panel--wide">
+          <p className="muted">{errorMessage}</p>
+          <button type="button" className="ghost" onClick={() => navigate("/")}>
+            Voltar para pautas
+          </button>
+        </div>
       ) : (
         <p className="muted">Nenhuma pauta encontrada.</p>
       )}

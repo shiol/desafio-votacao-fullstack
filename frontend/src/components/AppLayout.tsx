@@ -26,14 +26,6 @@ export default function AppLayout() {
           <p className="muted">
             Acompanhe a lista principal, crie pautas dedicadas e navegue para detalhes de cada pauta.
           </p>
-          <div className="stack">
-            <NavLink to="/" className="button-link">
-              Ver pautas
-            </NavLink>
-            <NavLink to="/pautas/nova" className="button-link button-link--ghost">
-              Criar pauta
-            </NavLink>
-          </div>
         </div>
       </header>
 

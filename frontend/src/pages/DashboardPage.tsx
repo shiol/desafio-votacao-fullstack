@@ -8,6 +8,7 @@ export default function DashboardPage() {
   const [pautas, setPautas] = useState<Pauta[]>([]);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState<Notification | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const pushNotification = (message: string, type: NotificationType = "info") => {
     if (!message) {
@@ -18,12 +19,15 @@ export default function DashboardPage() {
 
   const loadPautas = async () => {
     setLoading(true);
+    setErrorMessage(null);
     try {
       const data = await listPautas();
       const sorted = [...data].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       setPautas(sorted);
     } catch (error) {
-      pushNotification(error instanceof Error ? error.message : "Erro ao carregar pautas.", "error");
+      const message = error instanceof Error ? error.message : "Erro ao carregar pautas.";
+      setErrorMessage(message);
+      pushNotification(message, "error");
     } finally {
       setLoading(false);
     }
@@ -44,7 +48,16 @@ export default function DashboardPage() {
           {loading ? "Atualizando..." : "Atualizar"}
         </button>
       </div>
-      {pautas.length > 0 ? (
+      {loading && pautas.length === 0 ? (
+        <p className="muted">Carregando pautas...</p>
+      ) : errorMessage && pautas.length === 0 ? (
+        <div className="panel panel--wide">
+          <p className="muted">{errorMessage}</p>
+          <button type="button" className="ghost" onClick={loadPautas}>
+            Tentar novamente
+          </button>
+        </div>
+      ) : pautas.length > 0 ? (
         <div className="grid">
           {pautas.map((pauta) => (
             <PautaCard

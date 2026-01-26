@@ -153,6 +153,11 @@ mvn -Dperf=true -Dperf.votes=20000 test -Dtest=VotoPerformanceTest
 - A duração da sessão é 1 minuto por padrão
 - Um associado pode votar apenas uma vez por pauta
 
+### Observabilidade
+
+- Actuator e métricas: `GET /actuator/metrics` e `GET /actuator/prometheus`
+- Traces e logs: os logs incluem `traceId` e `spanId` quando disponíveis
+
 ## Detalhes de arquitetura
 
 ### Camadas do backend

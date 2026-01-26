@@ -1,4 +1,4 @@
-server:
+﻿server:
   port: 8080
 
 spring:
@@ -18,10 +18,24 @@ spring:
 logging:
   level:
     root: INFO
-    com.example.votacao: INFO
+    com.soya.votacao: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
 
 springdoc:
   api-docs:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  metrics:
+    tags:
+      application: votacao
+  tracing:
+    sampling:
+      probability: 1.0
+

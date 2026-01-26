@@ -64,6 +64,11 @@ export default function PautaCard({
   };
 
   const handleResultado = async () => {
+    if (!sessao) {
+      setResultado(null);
+      setLoadingResultado(false);
+      return;
+    }
     setLoadingResultado(true);
     try {
       const data = await getResultado(pauta.id);
@@ -77,8 +82,12 @@ export default function PautaCard({
 
   useEffect(() => {
     setResultado(null);
+    if (!sessao) {
+      setLoadingResultado(false);
+      return;
+    }
     handleResultado();
-  }, [pauta.id]);
+  }, [pauta.id, sessao?.aberta, sessao?.abertaEm, sessao?.fechaEm]);
 
   const handleDelete = async () => {
     const ok = window.confirm(`Excluir "${pauta.titulo}" e todos os votos?`);

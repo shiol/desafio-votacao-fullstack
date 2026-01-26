@@ -4,7 +4,7 @@
             "type": "java",
             "name": "VotacaoApplication",
             "request": "launch",
-            "mainClass": "com.example.votacao.VotacaoApplication",
+            "mainClass": "com.soya.votacao.VotacaoApplication",
             "projectName": "votacao"
         }
     ]
