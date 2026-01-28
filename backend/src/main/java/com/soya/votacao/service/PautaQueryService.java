@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.service;
+package com.soya.votacao.service;
 
 import com.soya.votacao.dto.PautaResponse;
 import com.soya.votacao.dto.SessaoResponse;

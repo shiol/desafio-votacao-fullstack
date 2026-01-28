@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.perf;
+package com.soya.votacao.perf;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

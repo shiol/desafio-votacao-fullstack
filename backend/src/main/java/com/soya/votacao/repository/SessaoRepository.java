@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.repository;
+package com.soya.votacao.repository;
 
 import com.soya.votacao.model.Sessao;
 import java.util.Optional;

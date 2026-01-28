@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.client;
+package com.soya.votacao.client;
 
 public class CpfClientResult {
     private boolean valid;

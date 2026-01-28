@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.controller;
+package com.soya.votacao.controller;
 
 import com.soya.votacao.dto.CreatePautaRequest;
 import com.soya.votacao.dto.OpenSessaoRequest;

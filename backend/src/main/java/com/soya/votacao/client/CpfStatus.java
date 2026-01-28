@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.client;
+package com.soya.votacao.client;
 
 public enum CpfStatus {
     ABLE_TO_VOTE,

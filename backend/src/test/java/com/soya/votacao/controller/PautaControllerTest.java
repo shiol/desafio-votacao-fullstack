@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.controller;
+package com.soya.votacao.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;

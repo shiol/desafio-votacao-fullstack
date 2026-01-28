@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.dto;
+package com.soya.votacao.dto;
 
 public class ResultadoResponse {
     private Long pautaId;

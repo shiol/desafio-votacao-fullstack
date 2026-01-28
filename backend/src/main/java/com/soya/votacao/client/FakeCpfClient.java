@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.client;
+package com.soya.votacao.client;
 
 import java.util.concurrent.ThreadLocalRandom;
 import org.slf4j.Logger;

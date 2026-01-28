@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.exception;
+package com.soya.votacao.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

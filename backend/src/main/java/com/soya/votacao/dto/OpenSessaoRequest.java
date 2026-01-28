@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.dto;
+package com.soya.votacao.dto;
 
 import jakarta.validation.constraints.Min;
 

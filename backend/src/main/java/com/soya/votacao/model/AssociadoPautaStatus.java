@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.model;
+package com.soya.votacao.model;
 
 import com.soya.votacao.client.CpfStatus;
 import jakarta.persistence.Column;

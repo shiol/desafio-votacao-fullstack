@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.config;
+package com.soya.votacao.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

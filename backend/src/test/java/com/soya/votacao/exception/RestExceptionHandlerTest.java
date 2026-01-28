@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.exception;
+package com.soya.votacao.exception;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

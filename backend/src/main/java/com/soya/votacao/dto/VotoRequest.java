@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.dto;
+package com.soya.votacao.dto;
 
 import com.soya.votacao.model.VotoValor;
 import jakarta.validation.constraints.NotBlank;

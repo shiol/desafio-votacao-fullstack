@@ -132,6 +132,23 @@ npm run dev
 Env opcional:
 - VITE_API_URL=http://localhost:8080/api/v1
 
+### Docker
+
+Build e execução com Docker Compose:
+```
+docker compose up -d --build
+```
+
+Aplicações:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8080
+- Swagger: http://localhost:8080/swagger-ui
+
+Para desligar:
+```
+docker compose down
+```
+
 ### Testes
 
 ```

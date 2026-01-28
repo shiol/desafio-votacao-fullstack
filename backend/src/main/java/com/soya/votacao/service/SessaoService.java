@@ -1,4 +1,4 @@
-﻿package com.soya.votacao.service;
+package com.soya.votacao.service;
 
 import com.soya.votacao.dto.OpenSessaoRequest;
 import com.soya.votacao.exception.ConflictException;
